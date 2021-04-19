@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:studio20two/widgets/quick_access_text.dart';
+
+import './quick_access_text.dart';
+import '../screens/academy_screen.dart';
+import '../screens/jamming_screen.dart';
+import '../screens/recording_screen.dart';
 
 class QuickAccess extends StatelessWidget {
   final screenSize;
@@ -20,29 +24,44 @@ class QuickAccess extends StatelessWidget {
           color: Colors.white,
           elevation: 10,
           child: Padding(
-            padding: EdgeInsets.all(screenSize.aspectRatio*3),
+            padding: EdgeInsets.all(screenSize.aspectRatio * 3),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                QuickAccessText('Academy', screenSize),
+                QuickAccessText(
+                  'Academy',
+                  screenSize,
+                  () =>
+                      Navigator.of(context).pushNamed(AcademyScreen.routeName),
+                ),
                 SizedBox(
                   height: screenSize.height / 20,
                   child: VerticalDivider(
-                    width: screenSize.aspectRatio*6,
+                    width: screenSize.aspectRatio * 6,
                     thickness: 2,
                     color: Colors.grey,
                   ),
                 ),
-                QuickAccessText('Jamming', screenSize),
+                QuickAccessText(
+                  'Jamming',
+                  screenSize,
+                  () =>
+                      Navigator.of(context).pushNamed(JammingScreen.routeName),
+                ),
                 SizedBox(
                   height: screenSize.height / 20,
                   child: VerticalDivider(
-                    width: screenSize.aspectRatio*6,
+                    width: screenSize.aspectRatio * 6,
                     thickness: 2,
                     color: Colors.grey,
                   ),
                 ),
-                QuickAccessText('Recording', screenSize),
+                QuickAccessText(
+                  'Recording',
+                  screenSize,
+                  () => Navigator.of(context)
+                      .pushNamed(RecordingScreen.routeName),
+                ),
               ],
             ),
           ),

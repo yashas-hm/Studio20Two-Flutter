@@ -5,8 +5,9 @@ class QuickAccessText extends StatefulWidget{
   final text;
   final textColor;
   final Size screenSize;
+  final Function function;
 
-  QuickAccessText(this.text, this.screenSize,[
+  QuickAccessText(this.text, this.screenSize, this.function,[
     this.textColor = Colors.black,
   ]);
 
@@ -43,7 +44,7 @@ class _QuickAccessTextState extends State<QuickAccessText> with SingleTickerProv
   Widget build(BuildContext context) {
     return InkWell(
       hoverColor: Colors.transparent,
-      onTap: (){},
+      onTap: () => widget.function(),
       onHover: (value)  {
         setState(() {
           _isHovering = value;
