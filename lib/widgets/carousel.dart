@@ -2,12 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class Carousel extends StatelessWidget {
-  final List<String> images = [
-    'assets/images/1.jpg',
-    'assets/images/2.jpg',
-    'assets/images/3.jpg',
-    'assets/images/5.jpg',
-  ];
+  final List<String> images;
+
+  Carousel(this.images);
 
   final CarouselController _controller = CarouselController();
 

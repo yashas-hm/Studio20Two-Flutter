@@ -4,22 +4,24 @@ import 'package:url_launcher/url_launcher.dart';
 import './bottom_bar_column.dart';
 import './mail_and_address.dart';
 import '../screens/about_us_screen.dart';
+import '../screens/contact_us_screen.dart';
 
 class BottomBar extends StatelessWidget {
+
+  void openUrl(BuildContext context, String url) async {
+    if (await canLaunch(url))
+      await launch(url);
+    else
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Some Error Occurred'),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-
-    void openUrl(BuildContext context, String url) async {
-      if (await canLaunch(url))
-        await launch(url);
-      else
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Some Error Occurred'),
-          ),
-        );
-    }
 
     return Container(
       width: screenSize.width,
@@ -42,7 +44,8 @@ class BottomBar extends StatelessWidget {
                       size: 3,
                       textData: ['ABOUT', 'Contact Us', 'About Us'],
                       functions: [
-                        () {},
+                        () => Navigator.of(context)
+                            .pushNamed(ContactUsScreen.routeName),
                         () => Navigator.of(context)
                             .pushNamed(AboutUsScreen.routeName)
                       ],

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:studio20two/screens/home_screen.dart';
 
 import './option_selector.dart';
 import '../screens/auth_screen.dart';
+import '../screens/contact_us_screen.dart';
+import '../screens/home_screen.dart';
 
 class CustomAppBar {
   PreferredSizeWidget createAppBar(BuildContext context) {
@@ -28,7 +29,8 @@ class CustomAppBar {
                   children: [
                     OptionSelector(
                       'Contact Us',
-                      () {},
+                      () => Navigator.of(context)
+                          .pushNamed(ContactUsScreen.routeName),
                       screenSize.aspectRatio * 8,
                     ),
                     SizedBox(

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import './providers/auth.dart';
 import './screens/about_us_screen.dart';
 import './screens/auth_screen.dart';
+import './screens/contact_us_screen.dart';
 import './screens/home_screen.dart';
 
 void main() {
@@ -37,6 +38,7 @@ class Studio20Two extends StatelessWidget {
           HomeScreen.routeName: (ctx) => HomeScreen(),
           AuthScreen.routeName: (ctx) => AuthScreen(),
           AboutUsScreen.routeName: (ctx) => AboutUsScreen(),
+          ContactUsScreen.routeName: (ctx) => ContactUsScreen(),
         },
       ),
     );

@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:studio20two/widgets/carousel.dart';
 
 import '../widgets/app_bar.dart';
 import '../widgets/bottom_bar.dart';
-import '../widgets/quick_access.dart';
 
-class HomeScreen extends StatelessWidget {
-  static const routeName = '/home-screen';
+class ContactUsScreen extends StatelessWidget {
+  static const routeName = '/contact-us-screen';
+
+  Widget _getContact(
+      BuildContext context, Size screenSize, String element, String url) {
+    return InkWell(
+      child: Image.asset(
+        element,
+        height: screenSize.height / 9,
+        width: screenSize.height / 9,
+        fit: BoxFit.cover,
+      ),
+      onTap: () => BottomBar().openUrl(context, url),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +52,37 @@ class HomeScreen extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
             ),
-            QuickAccess(screenSize),
             Container(
-              margin: EdgeInsets.only(top: screenSize.height / 1.7),
               width: screenSize.width,
-              height: screenSize.height / 3,
               alignment: Alignment.center,
-              child: Carousel(
-                [
-                  'assets/images/1.jpg',
-                  'assets/images/2.jpg',
-                  'assets/images/3.jpg',
-                  'assets/images/5.jpg',
-                ],
+              margin: EdgeInsets.only(top: screenSize.height / 2),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(screenSize.aspectRatio * 18),
+                ),
+                child: Container(
+                  width: screenSize.width / 3.5,
+                  height: screenSize.height / 2.5,
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _getContact(
+                        context,
+                        screenSize,
+                        'assets/images/instagram.png',
+                        'https://www.instagram.com/studio20two/',
+                      ),
+                      _getContact(
+                        context,
+                        screenSize,
+                        'assets/images/gmail.png',
+                        'mailto:mystudio20two@gmail.com',
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
             Container(
