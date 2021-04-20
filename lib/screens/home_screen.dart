@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:studio20two/widgets/carousel.dart';
+import '../widgets/carousel.dart';
+import '../widgets/create_background.dart';
+import '../widgets/create_logo.dart';
 
 import '../widgets/app_bar.dart';
 import '../widgets/bottom_bar.dart';
@@ -18,29 +20,8 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(
-              width: screenSize.width,
-              height: screenSize.height,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Theme.of(context).backgroundColor,
-                    Theme.of(context).primaryColorLight
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.fromLTRB(0, 80, 0, 50),
-              height: screenSize.height * 0.45,
-              width: screenSize.width,
-              child: Image.asset(
-                'assets/images/logo.jpg',
-                fit: BoxFit.contain,
-              ),
-            ),
+            CreateBackground(),
+            CreateLogo(),
             QuickAccess(screenSize),
             Container(
               margin: EdgeInsets.only(top: screenSize.height / 1.7),
@@ -56,12 +37,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: screenSize.width,
-              height: screenSize.height / 6,
-              margin: EdgeInsets.only(top: screenSize.height),
-              child: BottomBar(),
-            ),
+            BottomBar(),
           ],
         ),
       ),

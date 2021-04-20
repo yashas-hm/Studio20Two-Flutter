@@ -26,6 +26,7 @@ class BottomBar extends StatelessWidget {
     return Container(
       width: screenSize.width,
       height: screenSize.height / 6,
+      margin: EdgeInsets.only(top: screenSize.height),
       color: Theme.of(context).backgroundColor,
       child: Padding(
         padding: EdgeInsets.all(screenSize.aspectRatio * 5),
