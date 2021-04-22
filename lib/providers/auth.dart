@@ -4,8 +4,9 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart' as sp;
-import '../utils/HTTPException.dart';
+
 import '../utils/APIKeys.dart';
+import '../utils/HTTPException.dart';
 
 class Auth with ChangeNotifier {
   String _token;
@@ -80,7 +81,7 @@ class Auth with ChangeNotifier {
       return false;
     }
     final extracted =
-    json.decode(pref.getString('data')) as Map<String, Object>;
+        json.decode(pref.getString('data')) as Map<String, Object>;
     final expiryDate = DateTime.parse(extracted['expiry']);
     if (expiryDate.isBefore(DateTime.now())) {
       return false;
@@ -94,7 +95,7 @@ class Auth with ChangeNotifier {
     return true;
   }
 
-  Future<void> logout() async{
+  Future<void> logout() async {
     _token = null;
     _userId = null;
     _expiry = null;
