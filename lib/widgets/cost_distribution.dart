@@ -19,7 +19,7 @@ class CostDistribution extends StatelessWidget {
           children: _createText(text, screenSize),
         ),
         SizedBox(
-          width: screenSize.width/12,
+          width: screenSize.aspectRatio*12,
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -27,7 +27,7 @@ class CostDistribution extends StatelessWidget {
           children: _createText(cost, screenSize),
         ),
         SizedBox(
-          width: screenSize.width/12,
+          width: screenSize.aspectRatio*12,
         ),
         Expanded(
           child: Column(
@@ -44,14 +44,14 @@ class CostDistribution extends StatelessWidget {
     List<Widget> widgets = [];
     widgets.add(
       SizedBox(
-        height: screenSize.aspectRatio * 18,
+        height: screenSize.aspectRatio * 23,
       ),
     );
 
     for (int i = 0; i < size - 1; i++) {
       widgets.add(
         SizedBox(
-          height: screenSize.aspectRatio * 18,
+          height: screenSize.aspectRatio * 15,
         ),
       );
       widgets.add(Container(
@@ -62,6 +62,7 @@ class CostDistribution extends StatelessWidget {
           child: Text(
             'Book Now',
             style: TextStyle(
+              fontSize: screenSize.aspectRatio*5,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
             ),
@@ -82,7 +83,7 @@ class CostDistribution extends StatelessWidget {
       Text(
         data[0],
         style: TextStyle(
-          fontSize: screenSize.aspectRatio * 18,
+          fontSize: screenSize.aspectRatio * 15,
           fontFamily: 'Montserrat',
           fontWeight: FontWeight.bold,
         ),
@@ -92,7 +93,7 @@ class CostDistribution extends StatelessWidget {
     for (int i = 1; i < size; i++) {
       widgets.add(
         SizedBox(
-          height: screenSize.aspectRatio * 18,
+          height: screenSize.aspectRatio * 15,
         ),
       );
 
@@ -100,7 +101,7 @@ class CostDistribution extends StatelessWidget {
         Text(
           data[i],
           style: TextStyle(
-            fontSize: screenSize.aspectRatio * 15,
+            fontSize: screenSize.aspectRatio * 12,
             fontFamily: 'Montserrat',
             fontStyle: FontStyle.normal,
           ),

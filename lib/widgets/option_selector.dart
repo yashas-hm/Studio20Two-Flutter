@@ -5,12 +5,16 @@ class OptionSelector extends StatefulWidget {
   final fontSize;
   final textColor;
   final Function function;
+  final customChild;
+  final Widget child;
 
   OptionSelector(
     this.text,
     this.function, [
     this.fontSize = 20,
     this.textColor = Colors.white,
+    this.customChild = false,
+    this.child,
   ]);
 
   @override
@@ -29,15 +33,16 @@ class _OptionSelectorState extends State<OptionSelector> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            widget.text,
-            style: TextStyle(
-              color: widget.textColor,
-              fontSize: widget.fontSize,
-              fontFamily: 'MonumentExtended',
-              fontStyle: FontStyle.normal
-            ),
-          ),
+          widget.customChild
+              ? widget.child
+              : Text(
+                  widget.text,
+                  style: TextStyle(
+                      color: widget.textColor,
+                      fontSize: widget.fontSize,
+                      fontFamily: 'MonumentExtended',
+                      fontStyle: FontStyle.normal),
+                ),
           SizedBox(
             height: 5,
           ),

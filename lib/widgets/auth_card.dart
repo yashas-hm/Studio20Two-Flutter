@@ -68,12 +68,14 @@ class _AuthCardState extends State<AuthCard>
           _authData['email'],
           _authData['password'],
         );
+        Navigator.of(context).pushReplacementNamed("/");
       } else {
         // Sign user up
         await Provider.of<Auth>(context, listen: false).signup(
           _authData['email'],
           _authData['password'],
         );
+        Navigator.of(context).pushReplacementNamed("/");
       }
     } on HTTPException catch (error) {
       var msg = 'Authentication Failed';
@@ -125,11 +127,11 @@ class _AuthCardState extends State<AuthCard>
       child: AnimatedContainer(
         height: _authMode == AuthMode.Signup
             ? screenSize.height / 2.5
-            : screenSize.height / 2.5 - 70,
+            : screenSize.height / 2.5 - 40,
         constraints: BoxConstraints(
             minHeight: _authMode == AuthMode.Signup
                 ? screenSize.height / 2.5
-                : screenSize.height / 2.5 - 70),
+                : screenSize.height / 2.5 - 40),
         width: screenSize.width / 4,
         padding: EdgeInsets.all(16.0),
         duration: Duration(milliseconds: 300),
@@ -153,7 +155,7 @@ class _AuthCardState extends State<AuthCard>
                   },
                 ),
                 SizedBox(
-                  height: screenSize.aspectRatio * 18,
+                  height: screenSize.aspectRatio * 5,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Password'),
@@ -170,12 +172,15 @@ class _AuthCardState extends State<AuthCard>
                   },
                 ),
                 SizedBox(
-                  height: screenSize.aspectRatio * 18,
+                  height: screenSize.aspectRatio * 10,
                 ),
                 AnimatedContainer(
                   constraints: BoxConstraints(
                     maxHeight: _authMode == AuthMode.Signup
-                        ? screenSize.height / 5
+                        ? screenSize.height / 20
+                        : 0,
+                    minHeight: _authMode == AuthMode.Signup
+                        ? screenSize.height / 20
                         : 0,
                   ),
                   curve: Curves.easeIn,
@@ -187,22 +192,22 @@ class _AuthCardState extends State<AuthCard>
                       child: TextFormField(
                         enabled: _authMode == AuthMode.Signup,
                         decoration:
-                            InputDecoration(labelText: 'Confirm Password'),
+                        InputDecoration(labelText: 'Confirm Password'),
                         obscureText: true,
                         validator: _authMode == AuthMode.Signup
                             ? (value) {
-                                if (value != _passwordController.text) {
-                                  return 'Passwords do not match!';
-                                }
-                                return null;
-                              }
+                          if (value != _passwordController.text) {
+                            return 'Passwords do not match!';
+                          }
+                          return null;
+                        }
                             : null,
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: screenSize.aspectRatio * 18,
+                  height: screenSize.aspectRatio * 10,
                 ),
                 if (_isLoading)
                   CircularProgressIndicator()
@@ -210,7 +215,7 @@ class _AuthCardState extends State<AuthCard>
                   ElevatedButton(
                     onPressed: _submit,
                     child:
-                        Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
+                    Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
