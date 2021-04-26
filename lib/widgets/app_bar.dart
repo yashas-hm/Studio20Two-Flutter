@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:studio20two/providers/profile_manager.dart';
 
 import './option_selector.dart';
 import './profile_button.dart';
@@ -50,6 +51,7 @@ class CustomAppBar {
               Consumer<Auth>(
                 builder: (ctx, auth, child) {
                   auth.tryAutoLogin();
+                  // Provider.of<ProfileManager>(ctx).fetchData();
                   return auth.isAuth
                       ? AppBarProfile(auth)
                       : OptionSelector(

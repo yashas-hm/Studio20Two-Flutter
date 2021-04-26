@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:studio20two/providers/profile.dart';
+import 'package:studio20two/providers/profile_manager.dart';
 
 import './providers/auth.dart';
 import './screens/about_us_screen.dart';
@@ -21,6 +23,17 @@ class Studio20Two extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<Auth>(
           create: (ctx) => Auth(),
+        ),
+        ChangeNotifierProvider<Profile>(
+          create: (ctx) => Profile(
+            userName: null,
+            contact: null,
+            email: null,
+          ),
+        ),
+        ChangeNotifierProxyProvider<Auth, ProfileManager>(
+          create: null,
+          update: (ctx, auth, _) => ProfileManager(auth.token),
         ),
       ],
       child: MaterialApp(

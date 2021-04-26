@@ -28,8 +28,8 @@ class RecordingScreen extends StatelessWidget {
               ],
               cost: [
                 'Per Hour',
-                '1500',
-                '1500',
+                '1000',
+                '1000',
               ],
               functions: [
                 () {},

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/auth.dart';
+import '../providers/profile_manager.dart';
 import '../utils/HTTPException.dart';
 
 enum AuthMode { Signup, Login }
@@ -68,7 +69,10 @@ class _AuthCardState extends State<AuthCard>
           _authData['email'],
           _authData['password'],
         );
-        Navigator.of(context).pushReplacementNamed("/");
+        if (await Provider.of<ProfileManager>(context, listen: false)
+            .dataExists()) {
+          Navigator.of(context).pushReplacementNamed("/");
+        } else {}
       } else {
         // Sign user up
         await Provider.of<Auth>(context, listen: false).signup(
@@ -192,15 +196,15 @@ class _AuthCardState extends State<AuthCard>
                       child: TextFormField(
                         enabled: _authMode == AuthMode.Signup,
                         decoration:
-                        InputDecoration(labelText: 'Confirm Password'),
+                            InputDecoration(labelText: 'Confirm Password'),
                         obscureText: true,
                         validator: _authMode == AuthMode.Signup
                             ? (value) {
-                          if (value != _passwordController.text) {
-                            return 'Passwords do not match!';
-                          }
-                          return null;
-                        }
+                                if (value != _passwordController.text) {
+                                  return 'Passwords do not match!';
+                                }
+                                return null;
+                              }
                             : null,
                       ),
                     ),
@@ -215,7 +219,7 @@ class _AuthCardState extends State<AuthCard>
                   ElevatedButton(
                     onPressed: _submit,
                     child:
-                    Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
+                        Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
