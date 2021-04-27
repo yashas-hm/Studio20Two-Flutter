@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:studio20two/providers/profile_manager.dart';
 
 import './option_selector.dart';
 import './profile_button.dart';

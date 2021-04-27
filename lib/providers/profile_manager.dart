@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import './auth.dart';
 
+import './auth.dart';
 import './profile.dart';
 import '../utils/APIKeys.dart';
 
@@ -14,8 +14,8 @@ class ProfileManager with ChangeNotifier {
   ProfileManager(this._auth);
 
   Future<void> fetchData() async {
-    final url = Uri.https(
-        APIKey.databaseUrl, "/profile/${_auth.userId}.json", {"auth": _auth.token});
+    final url = Uri.https(APIKey.databaseUrl, "/profile/${_auth.userId}.json",
+        {"auth": _auth.token});
     try {
       final response = await http.get(url);
       print(response);
@@ -28,8 +28,8 @@ class ProfileManager with ChangeNotifier {
   }
 
   Future<void> update(Profile profile, BuildContext context) async {
-    final url = Uri.https(
-        APIKey.databaseUrl, "/profile/${_auth.userId}.json", {"auth": _auth.token});
+    final url = Uri.https(APIKey.databaseUrl, "/profile/${_auth.userId}.json",
+        {"auth": _auth.token});
     try {
       final response = await http.patch(
         url,
@@ -59,8 +59,8 @@ class ProfileManager with ChangeNotifier {
     String email,
     BuildContext context,
   ) async {
-    final url = Uri.https(
-        APIKey.databaseUrl, "/profile/${_auth.userId}.json", {"auth": _auth.token});
+    final url = Uri.https(APIKey.databaseUrl, "/profile/${_auth.userId}.json",
+        {"auth": _auth.token});
     try {
       final response = await http.post(
         url,
@@ -85,8 +85,8 @@ class ProfileManager with ChangeNotifier {
   }
 
   Future<bool> dataExists() async {
-    final url = Uri.https(
-        APIKey.databaseUrl, "/profile/${_auth.userId}.json", {"auth": _auth.token});
+    final url = Uri.https(APIKey.databaseUrl, "/profile/${_auth.userId}.json",
+        {"auth": _auth.token});
     final result = await http.get(url);
     if (result.body == null) {
       return false;
