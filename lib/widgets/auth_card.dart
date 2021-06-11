@@ -130,12 +130,12 @@ class _AuthCardState extends State<AuthCard>
       elevation: 8.0,
       child: AnimatedContainer(
         height: _authMode == AuthMode.Signup
-            ? screenSize.height / 2.5
-            : screenSize.height / 2.5 - 40,
+            ? screenSize.height / 3
+            : screenSize.height / 3 - 40,
         constraints: BoxConstraints(
             minHeight: _authMode == AuthMode.Signup
-                ? screenSize.height / 2.5
-                : screenSize.height / 2.5 - 40),
+                ? screenSize.height / 3
+                : screenSize.height / 3 - 40),
         width: screenSize.width / 4,
         padding: EdgeInsets.all(16.0),
         duration: Duration(milliseconds: 300),
@@ -232,17 +232,20 @@ class _AuthCardState extends State<AuthCard>
                       primary: Theme.of(context).primaryColorDark,
                     ),
                   ),
-                TextButton(
-                  onPressed: _switchAuthMode,
-                  child: Text(
-                      '${_authMode == AuthMode.Login ? 'New User? SignUp' : 'Existing User? Login'} instead'),
-                  style: TextButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: screenSize.aspectRatio * 15,
-                        vertical: screenSize.aspectRatio * 11,
-                      ),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      primary: Theme.of(context).primaryColorDark),
+                Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextButton(
+                    onPressed: _switchAuthMode,
+                    child: Text(
+                        '${_authMode == AuthMode.Login ? 'New User? SignUp' : 'Existing User? Login'} instead'),
+                    style: TextButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: screenSize.aspectRatio * 15,
+                          vertical: screenSize.aspectRatio * 11,
+                        ),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        primary: Theme.of(context).primaryColorDark),
+                  ),
                 )
               ],
             ),

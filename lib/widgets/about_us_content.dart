@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AboutUsContent extends StatelessWidget {
   final content = [
-    'aovuj:JKVB:SKJVB;kjb: UEFgUFG:UGFUGF;iG:fgu:FUg;AUaovuj:JKVB:SKJVB;kjb: UEFgUFG:UGFUGF;iG:fgu:FUg;AUaovuj:JKVB:SKJVB;kjb: UEFgUFG:UGFUGF;iG:fgu:FUg;AU',
+    'We provide jam room for jamming sessions, training for keyboard, Guitar and Vocals and we also provide a studio for recording songs ',
     '“Music drives you. It wakes you up, it gets you pumping. And, at the end of the day, the correct tune will chill you down.” – Dimebag Darrell',
     'We’re proud of the reputation that Studio20Two has gained throughout the years. What started off as a record label is now a recording studio, music academy and karaoke bar. A place where students, instructors and artists can thrive and make the most of their talents.',
   ];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/book_screen.dart';
 
 class CostDistribution extends StatelessWidget {
   final int size;
@@ -58,7 +59,8 @@ class CostDistribution extends StatelessWidget {
         width: screenSize.aspectRatio * 50,
         height: screenSize.aspectRatio * 20,
         child: ElevatedButton(
-          onPressed: () => functions[i](),
+          onPressed: () => Navigator.of(context)
+              .pushNamed(BookScreen.routeName),
           child: Text(
             'Book Now',
             style: TextStyle(

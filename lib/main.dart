@@ -11,6 +11,8 @@ import './screens/home_screen.dart';
 import '../screens/academy_screen.dart';
 import '../screens/jamming_screen.dart';
 import '../screens/recording_screen.dart';
+import '../screens/book_now_screen.dart';
+import '../screens/book_screen.dart';
 
 void main() {
   runApp(Studio20Two());
@@ -58,6 +60,8 @@ class Studio20Two extends StatelessWidget {
           AcademyScreen.routeName: (ctx) => AcademyScreen(),
           JammingScreen.routeName: (ctx) => JammingScreen(),
           RecordingScreen.routeName: (ctx) => RecordingScreen(),
+          BookNowScreen.routeName: (ctx) => BookNowScreen(),
+          BookScreen.routeName: (ctx) => BookScreen(),
         },
       ),
     );
