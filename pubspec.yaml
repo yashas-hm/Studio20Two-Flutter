@@ -65,15 +65,9 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/fonts/Montserrat-Black.ttf
-        - asset: assets/fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/a.ttf
+        - asset: assets/fonts/b.ttf
           weight: 700
-
-    - family: MonumentExtended
-      fonts:
-        - asset: assets/fonts/MonumentExtended-Regular.otf
-        - asset: assets/fonts/MonumentExtended-Ultrabold.otf
-          weight: 900
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

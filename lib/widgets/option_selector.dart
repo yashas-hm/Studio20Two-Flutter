@@ -40,8 +40,8 @@ class _OptionSelectorState extends State<OptionSelector> {
                   style: TextStyle(
                       color: widget.textColor,
                       fontSize: widget.fontSize,
-                      fontFamily: 'MonumentExtended',
-                      fontStyle: FontStyle.normal),
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold),
                 ),
           SizedBox(
             height: 5,

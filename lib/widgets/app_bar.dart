@@ -24,7 +24,7 @@ class CustomAppBar {
                 'Studio20Two',
                 () => Navigator.of(context)
                     .pushReplacementNamed(HomeScreen.routeName),
-                screenSize.aspectRatio * 8 + 5,
+                screenSize.aspectRatio * 10 + 5,
               ),
               Expanded(
                 child: Row(
@@ -34,7 +34,7 @@ class CustomAppBar {
                       'Contact Us',
                       () => Navigator.of(context)
                           .pushNamed(ContactUsScreen.routeName),
-                      screenSize.aspectRatio * 8,
+                      screenSize.aspectRatio * 10,
                     ),
                     SizedBox(
                       width: screenSize.width / 50,
@@ -43,7 +43,7 @@ class CustomAppBar {
                       'Book Now',
                       () => Navigator.of(context)
                         .pushNamed(BookNowScreen.routeName),
-                      screenSize.aspectRatio * 8,
+                      screenSize.aspectRatio * 10,
                     ),
                   ],
                 ),
@@ -55,11 +55,12 @@ class CustomAppBar {
                   return auth.isAuth
                       ? AppBarProfile(auth)
                       : OptionSelector(
-                          '                ',
+                          '                             ',
                           // () => Navigator.of(context)
                           //     .pushNamed(AuthScreen.routeName),
                           // screenSize.aspectRatio * 8,
                           ()=>{},
+                          screenSize.aspectRatio * 10,
                         );
                 },
               ),
