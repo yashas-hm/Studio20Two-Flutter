@@ -11,33 +11,35 @@ class JammingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar().createAppBar(context),
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            CreateBackground(),
-            CreateLogo(),
-            CostDistribution(
-              size: 3,
-              text: [
-                'Category',
-                'Jam Room',
-                'Karaoke',
-              ],
-              cost: [
-                'Per Hour',
-                '1000',
-                '1000',
-              ],
-              functions: [
-                () {},
-                () {},
-              ],
-            ),
-            BottomBar(),
-          ],
+    return InteractiveViewer(
+      child: Scaffold(
+        appBar: CustomAppBar().createAppBar(context),
+        extendBodyBehindAppBar: true,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              CreateBackground(),
+              CreateLogo(),
+              CostDistribution(
+                size: 3,
+                text: [
+                  'Category',
+                  'Jam Room',
+                  'Karaoke',
+                ],
+                cost: [
+                  'Per Hour',
+                  '1000',
+                  '1000',
+                ],
+                functions: [
+                  () {},
+                  () {},
+                ],
+              ),
+              BottomBar(),
+            ],
+          ),
         ),
       ),
     );

@@ -11,17 +11,18 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      appBar: CustomAppBar().createAppBar(context),
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            CreateBackground(),
-            CreateLogo(),
-            BottomBar(),
-          ],
+    return InteractiveViewer(
+      child: Scaffold(
+        appBar: CustomAppBar().createAppBar(context),
+        extendBodyBehindAppBar: true,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              CreateBackground(),
+              CreateLogo(),
+              BottomBar(),
+            ],
+          ),
         ),
       ),
     );

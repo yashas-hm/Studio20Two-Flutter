@@ -13,17 +13,19 @@ class BookNowScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
-      appBar: CustomAppBar().createAppBar(context),
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            CreateBackground(),
-            CreateLogo(),
-            QuickAccess(screenSize),
-            BottomBar(),
-          ],
+    return InteractiveViewer(
+      child: Scaffold(
+        appBar: CustomAppBar().createAppBar(context),
+        extendBodyBehindAppBar: true,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              CreateBackground(),
+              CreateLogo(),
+              QuickAccess(screenSize),
+              BottomBar(),
+            ],
+          ),
         ),
       ),
     );

@@ -25,49 +25,51 @@ class ContactUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    return Scaffold(
-      appBar: CustomAppBar().createAppBar(context),
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            CreateBackground(),
-            CreateLogo(),
-            Container(
-              width: screenSize.width,
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(top: screenSize.height / 2),
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(screenSize.aspectRatio * 18),
-                ),
-                child: Container(
-                  width: screenSize.width / 3.5,
-                  height: screenSize.height / 2.5,
-                  color: Colors.white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      _getContact(
-                        context,
-                        screenSize,
-                        'assets/images/instagram.png',
-                        'https://www.instagram.com/studio20two/',
-                      ),
-                      _getContact(
-                        context,
-                        screenSize,
-                        'assets/images/gmail.png',
-                        'mailto:mystudio20two@gmail.com',
-                      ),
-                    ],
+    return InteractiveViewer(
+      child: Scaffold(
+        appBar: CustomAppBar().createAppBar(context),
+        extendBodyBehindAppBar: true,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              CreateBackground(),
+              CreateLogo(),
+              Container(
+                width: screenSize.width,
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(top: screenSize.height / 2),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(screenSize.aspectRatio * 18),
+                  ),
+                  child: Container(
+                    width: screenSize.width / 3.5,
+                    height: screenSize.height / 2.5,
+                    color: Colors.white,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _getContact(
+                          context,
+                          screenSize,
+                          'assets/images/instagram.png',
+                          'https://www.instagram.com/studio20two/',
+                        ),
+                        _getContact(
+                          context,
+                          screenSize,
+                          'assets/images/gmail.png',
+                          'mailto:mystudio20two@gmail.com',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            BottomBar(),
-          ],
+              BottomBar(),
+            ],
+          ),
         ),
       ),
     );

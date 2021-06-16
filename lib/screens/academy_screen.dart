@@ -11,36 +11,38 @@ class AcademyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar().createAppBar(context),
-      extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            CreateBackground(),
-            CreateLogo(),
-            CostDistribution(
-              size: 4,
-              text: [
-                'Course',
-                'Guitar',
-                'Keyboard',
-                'Vocals',
-              ],
-              cost: [
-                'Per Month',
-                '4000',
-                '4000',
-                '4000',
-              ],
-              functions: [
-                () {},
-                () {},
-                () {},
-              ],
-            ),
-            BottomBar(),
-          ],
+    return InteractiveViewer(
+      child: Scaffold(
+        appBar: CustomAppBar().createAppBar(context),
+        extendBodyBehindAppBar: true,
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [
+              CreateBackground(),
+              CreateLogo(),
+              CostDistribution(
+                size: 4,
+                text: [
+                  'Course',
+                  'Guitar',
+                  'Keyboard',
+                  'Vocals',
+                ],
+                cost: [
+                  'Per Month',
+                  '4000',
+                  '4000',
+                  '4000',
+                ],
+                functions: [
+                  () {},
+                  () {},
+                  () {},
+                ],
+              ),
+              BottomBar(),
+            ],
+          ),
         ),
       ),
     );
